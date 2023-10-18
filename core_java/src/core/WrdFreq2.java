@@ -1,5 +1,6 @@
 package core;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class WrdFreq2 {
 			String str="marvel mcu bmw mercedes kia cricket ab marvel dc mcu dc marvel";
 			FileReader fr = new FileReader(str);
 			BufferedReader br = new BufferedReader(fr);
-			String line = br.readLine();
+			String line = BoundedLineReader.readLine(br, 5_000_000);
 			List<String> words = new ArrayList<>();
 			String word="";
 			while(line!=null) {
