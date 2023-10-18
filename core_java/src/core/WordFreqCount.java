@@ -1,5 +1,6 @@
 package core;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,7 +17,7 @@ public class WordFreqCount {
 			File f = new File("C:/text");
 			FileReader fr = new FileReader(s);
 			BufferedReader br = new BufferedReader(fr);
-			String line = br.readLine();
+			String line = BoundedLineReader.readLine(br, 5_000_000);
 			String[] wrds = line.split(" ");
 			System.out.println(wrds);
 			
